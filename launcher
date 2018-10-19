@@ -1,0 +1,19 @@
+#!/bin/bash
+
+serve_pv() {
+  local PVNAME=$1
+
+  kubectl get -o json pv $PVNAME > $PVNAME.json
+  local URL=$(js to-qemu-drive.js $PVNAME.json)
+
+  qemu-img-create -f qcow2 -b $URL $PVNAME.qcow2
+  qemu-nbd --verbose --persistent -k /shared-nbd/$PVNAME $PVNAME.qcow2
+}
+
+serve_pvc {
+  local PVCNAME=$1
+
+  kubectl get -o json pvc $PVCNAME > $PVCNAME.json
+  #local PVNAME=$(get_pv_for_pvc $PVCNAME)
+  serve_pv $PVNAME
+}
