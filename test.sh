@@ -1,5 +1,7 @@
 #!/usr/bin/bash
-head -c 512 /dev/urandom | tee TEST.in
+
+# Multiple of 512B is important, as this is the read size of qemu-img convert/dd
+head -c 4096 /dev/urandom > TEST.in
 
 SOCKPATH=$PWD bash -x launcher serve_url TEST TEST.in &
 
