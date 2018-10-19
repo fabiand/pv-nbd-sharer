@@ -8,6 +8,6 @@ branches:
   - "/^v[0-9]/"
 before_script:
 # https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases
-- curl -LO https://queue.taskcluster.net/v1/task/W5qm-q-LQyKIKR0vTK0k7g/runs/0/artifacts/public/build/js
+- time curl -LO https://queue.taskcluster.net/v1/task/W5qm-q-LQyKIKR0vTK0k7g/runs/0/artifacts/public/build/js
 script:
 - PATH=$PWD:$PATH bash -x test.sh
