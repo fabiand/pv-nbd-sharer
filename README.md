@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/fabiand/pv-nbd-sharer.svg?branch=master)](https://travis-ci.com/fabiand/pv-nbd-sharer)
+
 Just a POC to see how a remote storage can be connected using qcow2 and
 qemu-nbd, and then be consumed by qemu.
 
