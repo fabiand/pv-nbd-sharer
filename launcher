@@ -6,7 +6,7 @@ serve_pv() {
   kubectl get -o json pv $PVNAME > $PVNAME.json
   local URL=$(js to-qemu-drive.js $PVNAME.json)
 
-  qemu-img-create -f qcow2 -b $URL $PVNAME.qcow2
+  qemu-img create -f qcow2 -b $URL $PVNAME.qcow2
   qemu-nbd --verbose --persistent -k /shared-nbd/$PVNAME $PVNAME.qcow2
 }
 
