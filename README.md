@@ -1,6 +1,8 @@
 Just a POC to see how a remote storage can be connected using qcow2 and
 qemu-nbd, and then be consumed by qemu.
 
+Gist: https://gist.github.com/fabiand/e68011d2157cb3cde0116b41d1b4c463
+
 Idea:
 
 1. An empty qcow2 is pointing to the remote storage as a backing store (can be
