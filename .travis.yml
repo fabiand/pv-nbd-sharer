@@ -1,0 +1,7 @@
+branches:
+  only:
+  - master
+  - "/^v[0-9]/"
+
+script:
+- timeout 5m bash -x test.sh
